@@ -1,15 +1,15 @@
 const reaction = [
 {
     reactionBody: "Wow!",
-    username: "rach",
+    username: "rach"
 },{
     reactionBody: "Crazy!",
-    username: "rach",
+    username: "rach"
 },{
     reactionBody: "Bonkers!",
-    username: "rach",
-}
-];
+    username: "rach"
+},
+]
 
 
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
