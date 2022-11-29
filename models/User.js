@@ -43,6 +43,7 @@ userSchema
     // Getter
     .get(function () {
         return this.friends.length;
+        
     });
 
 const User = model('user', userSchema);

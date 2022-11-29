@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Thought, User } = require('../../models');
 
+//GET all thoughts
 router.get('/', (req, res) => {
     Thought.find()
         .then(users => res.json(users))
@@ -10,6 +11,7 @@ router.get('/', (req, res) => {
         })
 })
 
+//GET thought by id
 router.get('/:thoughtId', (req, res) => {
     Thought.findOne({ _id: req.params.thoughtId })
         .populate({ path: 'reactions' })
@@ -21,6 +23,7 @@ router.get('/:thoughtId', (req, res) => {
         .catch((err) => res.status(500).json(err));
 })
 
+//POST create thought
 router.post('/', (req, res) => {
     Thought.create(req.body)
         .then(thought => {
@@ -39,6 +42,7 @@ router.post('/', (req, res) => {
         })
 })
 
+//PUT edit thought by id
 router.put('/:thoughtId', (req, res) => {
     Thought.findByIdAndUpdate(
         { _id: req.params.thoughtId },
@@ -53,6 +57,7 @@ router.put('/:thoughtId', (req, res) => {
         .catch((err) => res.status(500).json(err));
 });
 
+//DELETE thought by id
 router.delete('/:thoughtId/:userId', (req, res) => {
     Thought.findByIdAndDelete(req.params.thoughtId)
         .then(thought => {
@@ -65,6 +70,7 @@ router.delete('/:thoughtId/:userId', (req, res) => {
         })
 })
 
+//POST create reaction
 router.post('/:thoughtId/reactions', (req, res) => {
     Thought.findByIdAndUpdate(req.params.thoughtId, {
         $addToSet: { reactions: req.body }
@@ -76,16 +82,21 @@ router.post('/:thoughtId/reactions', (req, res) => {
         .catch((err) => res.status(500).json(err));
 })
 
+//DELETE reaction
 router.delete('/:thoughtId/reactions/:reactionId', (req, res) => {
-    reactions.findByIdAndDelete(req.params.reactionId)
-    .then(reaction => {
-        !reaction ? res.status(404).json({ message: 'No reaction with that ID' }) : Thought.findByIdAndUpdate(req.params.thoughtId, {
-            $pull: { reactions: req.params.reactionId }
-        }, { new: true })
-            .then(thought => !thought
-                ? res.status(404).json({ message: 'No thought with that ID' })
-                : res.json(thought))
-    })
+    Thought.findByIdAndUpdate(req.params.thoughtId,
+      { $pull: { reactions: { _id: req.params.reactionId } } },
+      { runValidators: true, new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res
+              .status(404)
+              .json({ message: 'No thought found with that ID' })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
 })
+
 
 module.exports = router;
