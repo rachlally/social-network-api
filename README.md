@@ -16,6 +16,8 @@ To install, run `npm i` for packages.  Connect to local server `node server.js`.
 
 To view the routes and models at work, visit: https://drive.google.com/file/d/1UDbXsTeh45H4zmtPEJ72RTc34dNoap-0/view .
 
+Added DATE formatting: https://drive.google.com/file/d/1tTCrAtCsX6vWRba_32b6OZ3GfaIMjxTV/view .
+
 ## Credits
 
 Thank you to the UW Bootcamp instructional staff.  Special thanks to TA Lindsey Fitzgerald for the Mongo Tutorial right before the Thanksgiving break.
