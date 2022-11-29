@@ -1,41 +1,24 @@
 # Social Network API
+
 Social Network API site
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+The purpose of this Social Network API was to create a space where users can share thoughts, react to friends, and create a friend list.  This type of application is popular in today's social network. This was a critical exercise in understanding how to building and structure an API.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+Building this application provided a better understanding of how to use MongoDB for a full-stack application.  I learned how to create a MongoDB through the Mongoose package.  I learned how to set up the database by creating the model structure and seeding data.  Also, I learned the syntax for the API routes.
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To install, run `npm i` for packages.  Connect to local server `node server.js`. View in Insomnia.   
 
 ## Usage
 
-https://drive.google.com/file/d/1UDbXsTeh45H4zmtPEJ72RTc34dNoap-0/view 
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![alt text](assets/images/screenshot.png)
+To view the routes and models at work, visit: https://drive.google.com/file/d/1UDbXsTeh45H4zmtPEJ72RTc34dNoap-0/view .
 
 ## Credits
 
-Thank you to the UW Bootcamp instructional staff.  Special thanks to TA Lindsey Fitzgerald for the Mongo walk through.
+Thank you to the UW Bootcamp instructional staff.  Special thanks to TA Lindsey Fitzgerald for the Mongo Tutorial right before the Thanksgiving break.
 
 ## License
 
